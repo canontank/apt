@@ -7,8 +7,7 @@ $(document).ready(function() {
     for (var img of imgList) {
         $('#skview').append($('<div/>', { html : img.replace('-', '. ') }));
         $('#skview').append($('<div/>', {})
-            //.append($('<img/>', { src : 'img/skview/' + img + '.jpg' }))
-		.append($('<img/>', { src : 'https://cdn.jsdelivr.net/gh/canontank/canontank.github.io/apt/img/skview/' + img + '.jpg' }))
+            	.append($('<img/>', { src : 'img/skview/' + img + '.jpg' }))
         );
         $('#skview').append($('<div/>', { class : 'clear20' }));
     }
