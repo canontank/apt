@@ -10,7 +10,7 @@ $(document).ready(function() {
 function setDiv() {
 	for (var year = startYear; year <= endYear; year++) {
 		for (var month = 1; month <= 12; month++) {
-			$('#parkdream').append($('<div/>', {
+			$('#' + aptName).append($('<div/>', {
 				id : year + '-' + getMonthStr(month),
 				html : year + '. ' + getMonthStr(month)
 			}));
