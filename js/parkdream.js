@@ -7,10 +7,10 @@ var imgList = new Array(
 
 $(document).ready(function() {
     for (var img of imgList) {
-        $('#parkdream').append($('<div/>', { html : img.replace('-', '. ') }));
-        $('#parkdream').append($('<div/>', {})
+        $('#' + aptName).append($('<div/>', { html : img.replace('-', '. ') }));
+        $('#' + aptName).append($('<div/>', {})
             .append($('<img/>', { src : 'img/' + aptName + '/' + img + '.jpg' }))
         );
-        $('#parkdream').append($('<div/>', { class : 'clear20' }));
+        $('#' + aptName).append($('<div/>', { class : 'clear20' }));
     }
 });
