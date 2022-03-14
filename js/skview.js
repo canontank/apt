@@ -1,45 +1,16 @@
 var aptName = 'skview';
-var startYear = 2020;
-var endYear = 2023;
+var imgList = new Array(
+														  '2020-11', '2020-12',
+    '2021-01', '2021-02', '2021-03', '2021-04', '2021-05', '2021-06', '2021-07', '2021-08', '2021-09', '2021-10', '2021-11', '2021-12',
+    '2022-01', '2022-02'
+);
 
 $(document).ready(function() {
-	setDiv();
-	setImage();
+    for (var img of imgList) {
+        $('#parkdream').append($('<div/>', { html : img.replace('-', '. ') }));
+        $('#parkdream').append($('<div/>', {})
+            .append($('<img/>', { src : 'img/' + aptName + '/' + img + '.jpg' }))
+        );
+        $('#parkdream').append($('<div/>', { class : 'clear20' }));
+    }
 });
-
-function setDiv() {
-	for (var year = startYear; year <= endYear; year++) {
-		for (var month = 1; month <= 12; month++) {
-			$('#' + aptName).append($('<div/>', {
-				id : year + '-' + getMonthStr(month),
-				html : year + '. ' + getMonthStr(month)
-			}));
-		}
-	}
-}
-
-function setImage() {
-	for (var year = startYear; year <= endYear; year++) {
-		for (var month = 1; month <= 12; month++) {
-			var img = new Image();
-			img.onload = function(a) {
-				var imgPath = a.path[0].currentSrc;
-				var divId = imgPath.substring(imgPath.lastIndexOf('/') + 1, imgPath.length).replace('.jpg', '');
-				$('#' + divId).append($('<img/>', { src : imgPath }));
-				$('#' + divId).append($('<div/>', { class : 'clear20' }));
-			}
-			img.onerror = function(a) {
-				var imgPath = a.path[0].currentSrc;
-				var divId = imgPath.substring(imgPath.lastIndexOf('/') + 1, imgPath.length).replace('.jpg', '');
-				$('#' + divId).empty();
-			}
-			img.src='img/' + aptName + '/' + year + '-' + getMonthStr(month) + '.jpg';
-		}
-	}
-}
-
-function getMonthStr(month) {
-	if (month < 10)
-		return "0" + month;
-	return month;
-}
